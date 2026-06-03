@@ -1,0 +1,7 @@
+# This KiCad plugin does not require any external pip packages.
+# It relies exclusively on KiCad's internal Python environment which already provides:
+# - pcbnew (KiCad Python API)
+# - wxPython (wx) for the Graphical User Interface
+
+# If you were running scripts outside of KiCad's bundled python, you might need wxPython:
+# wxPython>=4.0.0
