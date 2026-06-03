@@ -100,7 +100,8 @@ class ViaSizeUnifierPlugin(pcbnew.ActionPlugin):
             
             # Iterate through all routing objects to find vias
             for track in board.GetTracks():
-                if isinstance(track, pcbnew.VIA):
+                # We check the class name or duck typing to support multiple KiCad versions
+                if type(track).__name__ in ['PCB_VIA', 'VIA'] or hasattr(track, 'SetDrill'):
                     # SetWidth changes the Overall Diameter of the via
                     track.SetWidth(new_diameter)
                     # SetDrill changes the Drill hole diameter of the via
